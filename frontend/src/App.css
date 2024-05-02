@@ -1,0 +1,19 @@
+*::-webkit-scrollbar-track {
+    background: #A9A9A9;
+  }
+  *::-webkit-scrollbar {
+    background: transparent;
+    width: 10px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: #6495ED;
+    border-radius: 20px;
+  }
+
+  *{
+    width: auto;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; 
+    box-sizing: border-box;    
+}
