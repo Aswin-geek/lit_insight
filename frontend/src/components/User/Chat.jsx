@@ -45,12 +45,12 @@ const Chat = () => {
     }
   }, [value]);
 
-  function getRoom(id) {
+  async function getRoom(id) {
     const id2 = localStorage.getItem("id");
     const user_id = parseInt(JSON.parse(id2));
     setUser(user_id);
     console.log(user_id, id);
-    axiosInstance
+    await axiosInstance
       .post("room/", { user_1: user_id, user_2: id })
       .then((response) => {
         setRoomId(response.data[0].id);
@@ -115,7 +115,7 @@ const Chat = () => {
                   value={user.id}
                 >
                   {/* {user.id} */}
-                  {user.username}
+                  {user.username} {user.type}
                 </div>
               );
             })}

@@ -37,6 +37,10 @@ function Admin_Navbar() {
     navigate("/admin_login");
   }
 
+  function go_home(){
+    navigate('/admin/')
+  }
+
   return (
     <>
       {isLoggedIn ? (
@@ -64,7 +68,7 @@ function Admin_Navbar() {
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse>
-              <Navbar className="bg-blue-400" href="#" active>
+              <Navbar className="bg-blue-400" href="#" active onClick={go_home}>
                 Home
               </Navbar>
               <Navbar className="bg-blue-400" href="#">

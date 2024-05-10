@@ -6,6 +6,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     type = models.CharField(max_length=10)
+    balance=models.FloatField(default=0)
     status=models.BooleanField(default=True)
     image=models.ImageField(upload_to='images/',null=True,blank=True)
 
@@ -23,6 +24,7 @@ class Book(models.Model):
     genre_id=models.ForeignKey(Genre, on_delete=models.CASCADE)
     image=models.ImageField(upload_to='images/',null=True,blank=True)
     copy=models.FileField(upload_to='files/',null=True,blank=True)
+    book_views=models.IntegerField(default=0)
     status=models.BooleanField(default=True)
     
 class Review(models.Model):

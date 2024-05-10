@@ -30,6 +30,7 @@ urlpatterns = [
     path('comment/<int:id>/', Comment.as_view(), name='comment'),
     path('room/', Rooms.as_view(), name='room'),
     path('chat_user/<int:id>', ChatUser.as_view(), name='chat_user'),
+    path('chat_author/<int:id>', ChatAuthor.as_view(), name='chat_author'),
     path('plan/', Plans.as_view(), name='plan'),
     path('plan/<int:id>', Plans.as_view(), name='plan'),
     path('pay/', PaymentView.as_view(), name='pay'),

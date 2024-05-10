@@ -222,6 +222,9 @@ const Book = () => {
                 <p className="font-normal text-gray-700 dark:text-gray-400">
                   {book.genre_id.name}
                 </p>
+                <p className="font-normal text-gray-700 dark:text-gray-400">
+                  Read by {book.book_views} users
+                </p>
                 <a className="px-3 py-1 bg-emerald-600 rounded-md text-center text-white font-sans text-sm" href={`http://localhost:8000${book.copy}`}  without rel='noreferrer' target='_blank'>
                 View
                 </a>

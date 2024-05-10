@@ -7,6 +7,7 @@ import ArrowCircleRightTwoToneIcon from '@mui/icons-material/ArrowCircleRightTwo
 import MarkunreadMailboxTwoToneIcon from '@mui/icons-material/MarkunreadMailboxTwoTone';
 import CampaignTwoToneIcon from '@mui/icons-material/CampaignTwoTone';
 import AccountBoxTwoToneIcon from '@mui/icons-material/AccountBoxTwoTone';
+import ChatTwoToneIcon from "@mui/icons-material/ChatTwoTone";
 
 
 const Author_Sidebar = () => {
@@ -84,6 +85,15 @@ const Author_Sidebar = () => {
                 Profile
               </span>
             </li></Link>
+            <Link to="/author/chat/">
+            <li className="flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-sm items-center gap-x-4">
+              {/* <img src={`./src/assets/${Menu.src}.png`} /> */}
+              <ChatTwoToneIcon />
+              <span className={`${!open && "hidden"} origin-left duration-200`}>
+                Chat
+              </span>
+            </li>
+          </Link>
         </ul>
         
       </div>

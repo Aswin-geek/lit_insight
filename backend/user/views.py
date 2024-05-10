@@ -163,7 +163,7 @@ class Genres(APIView):
     
 class UserList(APIView):
     def get(self, request, type):
-        users=User.objects.all().exclude(id=1)
+        users=User.objects.all().exclude(is_superuser=True)
         serializer=UserSerializer(users, many=True)
         return Response(serializer.data)
     
@@ -248,7 +248,7 @@ class Reviews(APIView):
         print(serializer.errors)
         if serializer.is_valid():
             serializer.save()
-            return Response(status=status.HTTP_201_CREATED)
+            return Response(serializer.data,status=status.HTTP_201_CREATED)
         else:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         
@@ -366,21 +366,24 @@ class Rooms(APIView):
         User_1=User.objects.get(id=user_1)
         User_2=User.objects.get(id=user_2)
         
-        if Room.objects.filter(first_user=user_1,second_user=user_2):
+        if Room.objects.filter(first_user=user_1,second_user=user_2).exists():
             room_id=Room.objects.filter(first_user=user_1,second_user=user_2)
             serializer=RoomSerializer(room_id, many=True)
+            print(serializer.data)
             return Response(serializer.data, status=200)
         
-        elif Room.objects.filter(first_user=user_2,second_user=user_1):
+        elif Room.objects.filter(first_user=user_2,second_user=user_1).exists():
             room_id=Room.objects.filter(first_user=user_2,second_user=user_1)
             serializer=RoomSerializer(room_id, many=True)
+            print(serializer.data)
             return Response(serializer.data, status=200)
         
         else:
             room=Room(first_user_id=User_1.id,second_user_id=User_2.id)
             room.save()
             room_id=Room.objects.latest('id')
-            serializer=RoomSerializer(room_id, many=True)
+            serializer=RoomSerializer(room_id)
+            print(serializer.data)
             return Response(serializer.data, status=200)
         
     def get(self, request):
@@ -390,7 +393,13 @@ class Rooms(APIView):
     
 class ChatUser(APIView):
     def get(self,request,id):
-        users=User.objects.filter(type='user',status=True).exclude(id=id)
+        users=User.objects.filter(status=True).exclude(id=id).exclude(is_superuser=True)
+        serializer=UserListSerializer(users, many=True)
+        return Response(serializer.data, status=200)
+    
+class ChatAuthor(APIView):
+    def get(self,request,id):
+        users=User.objects.filter(type='user',status=True).exclude(id=id).exclude(is_superuser=True)
         serializer=UserListSerializer(users, many=True)
         return Response(serializer.data, status=200)
     
@@ -551,6 +560,8 @@ class Messages(APIView):
     def post(self, request):
         print(request.data)
         serializer=MessageSerializer(data=request.data)
+        serializer.is_valid()
+        print(serializer.errors)
         if serializer.is_valid():
             print('2')
             serializer.save()
@@ -570,6 +581,16 @@ class View_Book(APIView):
         serializer_2=ViewReviewSerializer(reviews, many=True)
         serializer={'book':serializer_1.data, 'reviews':serializer_2.data}
         return Response(data=serializer, status=200)
+    
+    def put(self, request, id):
+        book=Book.objects.get(id=id)
+        book.book_views+=1
+        book.save()
+        user=User.objects.get(id=book.author_id.id)
+        if book.book_views%10 == 0:
+            user.balance+=50
+            user.save()
+        return Response(status=200)
         
 class Book_Likes(APIView):
     def post(self, request):
@@ -603,3 +624,4 @@ class Book_Likes(APIView):
         like=Book_Like.objects.filter(user_id=user_id,book_id=book_id)
         like_count=like.count()
         return Response({'like_count':like_count},status=status.HTTP_200_OK)
+    

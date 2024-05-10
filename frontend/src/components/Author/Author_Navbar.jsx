@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from 'flowbite-react';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; 
 
 function Author_Dashboard() {
 
@@ -36,6 +36,10 @@ function Author_Dashboard() {
     navigate('/login')
 }
 
+function go_home(){
+  navigate('/author/')
+}
+
   return (
   <Navbar fluid rounded className='bg-blue-400 rounded-none'>
     <Navbar.Brand className='space-x-1.5'>
@@ -46,7 +50,7 @@ function Author_Dashboard() {
     </Navbar.Brand>
     <Navbar.Toggle />
     <Navbar.Collapse >
-      <Navbar className='bg-blue-400' href="#" active>
+      <Navbar className='bg-blue-400' href="#" active onClick={go_home}>
         Home
       </Navbar>
       <Navbar className='bg-blue-400' href="#">

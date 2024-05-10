@@ -8,7 +8,7 @@ class UserSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'password', 'type', 'status', 'image')
+        fields = ('id', 'username', 'email', 'password', 'type', 'status', 'image', 'balance')
         
 class UserListSerializer(serializers.ModelSerializer):
   class Meta:
@@ -40,7 +40,7 @@ class ViewBookSerializer(serializers.ModelSerializer):
   author_id=UserSerializer()
   class Meta:
     model = Book
-    fields = ('id', 'Book_Name', 'author_id', 'genre_id', 'image', 'copy', 'status' )
+    fields = ('id', 'Book_Name', 'author_id', 'genre_id', 'image', 'copy', 'status', 'book_views')
     
 class ReviewSerializer(serializers.ModelSerializer):
   class Meta:
