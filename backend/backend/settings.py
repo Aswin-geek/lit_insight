@@ -217,5 +217,5 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'aswintjimca18@gmail.com'
 EMAIL_HOST_PASSWORD = 'hsxituuyndvfoble'
 
-RAZOR_KEY_ID='rzp_test_DLTeq2nNMzXQkj'
-RAZOR_KEY_SECRET='bmng64HRS0muDq1yCGX0m8YS'
+RAZOR_KEY_ID = config('RAZOR_KEY_ID')
+RAZOR_KEY_SECRET = config('RAZOR_KEY_SECRET')
