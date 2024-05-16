@@ -219,3 +219,7 @@ EMAIL_HOST_PASSWORD = 'hsxituuyndvfoble'
 
 RAZOR_KEY_ID = config('RAZOR_KEY_ID')
 RAZOR_KEY_SECRET = config('RAZOR_KEY_SECRET')
+
+
+GTK_FOLDER = r'C:\Program Files\GTK3-Runtime Win64\bin'
+os.environ['PATH'] = GTK_FOLDER + os.pathsep + os.environ.get('PATH', '')
