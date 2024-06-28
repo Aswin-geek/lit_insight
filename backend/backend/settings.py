@@ -175,7 +175,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 CORS_ALLOW_CREDENTIALS = True
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:3000","http://localhost:5173"]
+CORS_ALLOWED_ORIGINS = ["http://localhost:3000","https://master.d1d6ff39hxo70x.amplifyapp.com",]
 
 MEDIA_URL = '/media/'
 
