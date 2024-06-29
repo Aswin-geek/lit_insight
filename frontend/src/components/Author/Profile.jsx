@@ -47,7 +47,7 @@ const Profile = () => {
       <div className="flex flex-col items-center pb-10">
         <img
           height="96"
-          src={`http://localhost:8000${profile.image}`}
+          src={`https://litinsight.in${profile.image}`}
           width="96"
           className="mb-3 rounded-full shadow-lg"
         />

@@ -177,6 +177,8 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = ["http://localhost:3000","https://master.d1d6ff39hxo70x.amplifyapp.com",]
 
+CSRF_TRUSTED_ORIGINS=["https://litinsight.in"]
+
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

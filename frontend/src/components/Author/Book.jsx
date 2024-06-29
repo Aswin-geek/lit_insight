@@ -214,7 +214,7 @@ const Book = () => {
                 key={book.id}
                 className="max-w-sm"
                 imgAlt="Meaningful alt text for an image that is not purely decorative"
-                imgSrc={`http://localhost:8000${book.image}`}
+                imgSrc={`https://litinsight.in${book.image}`}
               >
                 <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   {book.Book_Name}
@@ -225,7 +225,7 @@ const Book = () => {
                 <p className="font-normal text-gray-700 dark:text-gray-400">
                   Read by {book.book_views} users
                 </p>
-                <a className="px-3 py-1 bg-emerald-600 rounded-md text-center text-white font-sans text-sm" href={`http://localhost:8000${book.copy}`}  without rel='noreferrer' target='_blank'>
+                <a className="px-3 py-1 bg-emerald-600 rounded-md text-center text-white font-sans text-sm" href={`https://litinsight.in${book.copy}`}  without rel='noreferrer' target='_blank'>
                 View
                 </a>
                 <Button

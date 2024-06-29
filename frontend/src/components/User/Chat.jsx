@@ -24,7 +24,7 @@ const Chat = () => {
   useEffect(() => {
     if (roomId) {
       const newClient = new W3CWebSocket(
-        `ws://127.0.0.1:8000/ws/chat/${roomId}`
+        `ws://litinsight.in/ws/chat/${roomId}`
       );
       setClient(newClient);
 

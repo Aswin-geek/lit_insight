@@ -91,7 +91,7 @@ const View_Book = () => {
         {book && (
           <Card
             className="w-full"
-            imgSrc={`http://localhost:8000${book.image}`}
+            imgSrc={`https://litinsight.in${book.image}`}
             horizontal
           >
             <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -108,7 +108,7 @@ const View_Book = () => {
             </p>
             <a
               className="px-3 py-1 bg-emerald-600 rounded-md text-center text-white font-sans text-sm"
-              href={`http://localhost:8000${book.copy}`}
+              href={`https://litinsight.in${book.copy}`}
               without
               rel="noreferrer"
               target="_blank"

@@ -25,7 +25,7 @@ const Upcomings = () => {
                 key={upcoming.id}
                 className="max-w-sm h-fit"
                 imgAlt="Meaningful alt text for an image that is not purely decorative"
-                imgSrc={`http://localhost:8000${upcoming.image}`}
+                imgSrc={`https://litinsight.in${upcoming.image}`}
               >
                 <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                   {upcoming.Book_Name}

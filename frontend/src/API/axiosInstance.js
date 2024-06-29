@@ -2,7 +2,7 @@ import axios from "axios";
 
 const axiosInstance = axios.create(
     {
-    baseURL: 'http://localhost:8000', // Replace with your Django backend URL
+    baseURL: 'https://litinsight.in/', // Replace with your Django backend URL
     withCredentials: true,
     headers: {
       'Content-Type': 'application/json',
